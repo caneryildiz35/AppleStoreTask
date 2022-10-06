@@ -17,6 +17,7 @@ import { IphoneService } from "../../services/iphone.service";
 })
 export class ListIphonesComponent implements OnInit {
   iphones$!: Observable<Iphone[]>;
+  urlRegex = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
 
   constructor(private dialog: MatDialog, private store: Store) {}
 
@@ -25,6 +26,9 @@ export class ListIphonesComponent implements OnInit {
     this.iphones$ = this.store.select(getAllIphones);
   }
 
+  checkImageUrl(url: string): boolean {
+    return url.match(this.urlRegex) ? true : false;
+  }
   addIphone(): void {
     const dialogConfig = DialogConfig();
 
