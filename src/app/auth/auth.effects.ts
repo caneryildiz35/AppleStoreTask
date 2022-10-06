@@ -19,7 +19,6 @@ export class AuthEffects {
       ofType(AuthActions.signUp),
       map((signUpAction) => signUpAction.data),
       switchMap((data) => {
-
         return from(
           this.afAuth.createUserWithEmailAndPassword(data.email, data.password)
         ).pipe(
@@ -27,6 +26,7 @@ export class AuthEffects {
             return this.handleSuccessfulAuthentication(result.user);
           }),
           catchError(async (error) => {
+            alert("Sign Up Error: "+ error);
             return AuthActions.signupFailed({ data: error });
           })
         );
@@ -49,7 +49,8 @@ export class AuthEffects {
             return this.handleSuccessfulAuthentication(result.user);
           }),
           catchError(async (error) => {
-            return AuthActions.loginFailed({ data: error });
+            alert("Login Error: " + error);
+            return  AuthActions.loginFailed({ data: error });
           })
         );
       })
