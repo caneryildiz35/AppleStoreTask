@@ -33,7 +33,6 @@ import { OfferRoutingModule } from "./offer.routing.module";
     MatButtonModule,
     AngularFireAuthModule,
     OfferRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase), // app modulde cagırsak sadece ?
     MatDialogModule,
     MatIconModule,
     MatOptionModule,

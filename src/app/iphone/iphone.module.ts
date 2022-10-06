@@ -26,7 +26,6 @@ import { IphoneRoutingModule } from "./iphone.routing.module";
     MatInputModule,
     MatButtonModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(environment.firebase),
     MatDialogModule,
     IphoneRoutingModule,
     MatIconModule,
