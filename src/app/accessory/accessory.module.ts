@@ -8,13 +8,14 @@ import { ListAccessoriesComponent } from "./features/list-accessories/list-acces
 import { EditAccessoryDialogComponent } from "./components/edit-accessory-dialog/edit-accessory-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
-import { RouterModule } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { accessoryReducer } from "./reducers/accessory-reducer";
 import { AccessoryEffects } from "./accessory.effects";
 import { AccessoryService } from "./services/accessory.service";
+import { AccessoryRoutingModule } from "./accessory.routing.module";
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { AccessoryService } from "./services/accessory.service";
     MatInputModule,
     MatButtonModule,
     MatDialogModule,
+    AccessoryRoutingModule,
     MatIconModule,
     RouterModule.forChild([]),
     AngularFirestoreModule,

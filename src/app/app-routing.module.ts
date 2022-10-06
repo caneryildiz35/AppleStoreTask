@@ -1,3 +1,4 @@
+import { importType } from '@angular/compiler/src/output/output_ast';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListAccessoriesComponent } from './accessory/features/list-accessories/list-accessories.component';
@@ -11,7 +12,7 @@ import { OfferGuard } from './offer/offer.guard';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'register',
@@ -19,17 +20,17 @@ const routes: Routes = [
   },
   {
     path: 'list-accessories',
-    component: ListAccessoriesComponent,
+    loadChildren:()=> import('./accessory/accessory.module').then(m => m.AccessoryModule),
     canActivate: [AuthGuard]
   },
-  {
+  { 
     path: 'list-iphones',
-    component: ListIphonesComponent,
+    loadChildren:()=> import('./iphone/iphone.module').then(m => m.iPhoneModule),
     canActivate: [AuthGuard]
   },
   {
     path: 'list-offers',
-    component: ListOffersComponent,
+    loadChildren:() => import('./offer/offer.module').then(m => m.OfferModule),
     canActivate: [OfferGuard, AuthGuard]
   },
   {
