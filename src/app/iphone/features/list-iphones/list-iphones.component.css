@@ -1,0 +1,23 @@
+
+.iphone-card {
+    margin: 0 auto;
+    max-width: 400px;
+    margin-bottom: 5px;
+}
+.iphone-actions {
+    text-align: center;
+}
+.iphone-card-header {
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}
+.iphone-actions button {
+  margin-right: 10px;
+}
+.iphone-header{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

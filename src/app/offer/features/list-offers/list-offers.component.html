@@ -1,0 +1,68 @@
+ <div class="total-price">
+	<h1>{{totalPrice | currency}}</h1>
+ </div>
+
+<div class="offer-select" >
+	<mat-form-field appearance="fill" style=" width:500px;" >
+		<mat-label>Iphones</mat-label>
+		<mat-select [formControl]="iphoneFormController" multiple (selectionChange)="selectionChanged()">
+		  <mat-option *ngFor="let iphone of iphones$ | async" [value]="iphone">
+			{{iphone.name}}
+		</mat-option>
+		</mat-select>
+	  </mat-form-field>
+</div>
+
+<div class="offer-select">
+	<mat-form-field appearance="fill" style=" width:500px;" >
+		<mat-label>Accessories</mat-label>
+		<mat-select [formControl]="accessoryFormController" multiple (selectionChange)="selectionChanged()">
+		  <mat-option *ngFor="let accessory of accessories$ | async" [value]="accessory">
+			{{accessory.name}}
+		</mat-option>
+		</mat-select>
+	  </mat-form-field>
+</div>
+<div class="offer-select">
+	<mat-form-field appearance="fill" style=" width:500px;" >
+		<mat-label>Name</mat-label>
+		<input matInput  type="text" [formControl]="nameFormController" />
+	  </mat-form-field>
+</div>
+
+<div style="margin-left:110px;">
+    <h3 class="title">Make Offer</h3>
+    <button mat-mini-fab  color ="primary" style="margin-left:15px;margin-bottom:25px;" >
+      <mat-icon (click)="addOffer()">add</mat-icon>
+    </button>
+</div>
+
+
+<mat-table class="mat-elevation-z8" [dataSource]="offers$">
+	<ng-container matColumnDef="name">
+		<mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+		<mat-cell *matCellDef="let row;">{{row.name}}</mat-cell>
+	</ng-container>
+	<ng-container matColumnDef="price">
+		<mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+		<mat-cell *matCellDef="let row;">{{row.price | currency}}</mat-cell>
+	</ng-container>
+	<ng-container matColumnDef="products">
+		<mat-header-cell *matHeaderCellDef>Products</mat-header-cell>
+		<mat-cell *matCellDef="let row;">{{row.products}}</mat-cell>
+	</ng-container>
+	<ng-container matColumnDef="actions">
+		<mat-header-cell *matHeaderCellDef></mat-header-cell>
+		<mat-cell *matCellDef="let row;">
+      <button mat-icon-button>
+        <mat-icon (click)="updateOffer(row)">launch</mat-icon>        
+      </button>
+      <button mat-icon-button>
+        <mat-icon  (click)="deleteOffer(row)" color="warn">delete</mat-icon>
+      </button>
+    </mat-cell>
+	</ng-container>
+	<mat-header-row *matHeaderRowDef="displayedColumns">
+	</mat-header-row>
+	<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>

@@ -1,0 +1,29 @@
+<div class="accessory-header">
+  <h1 class="title">Accessories</h1>
+  <button mat-mini-fab style="margin-left: 10px" color="primary">
+    <mat-icon (click)="addAccessory()">add</mat-icon>
+  </button>
+</div>
+
+<mat-card
+  *ngFor="let accessory of accessories$"
+  class="accessory-card mat-elevation-z10"
+>
+  <mat-card-header class="accessory-card-header">
+    <mat-card-title>{{ accessory.name }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p><b>Price :</b>{{ accessory.price | currency }}</p>
+    <p><b>SKU :</b>{{ accessory.SKU }}</p>
+  </mat-card-content>
+
+  <mat-card-actions class="accessory-actions">
+    <button mat-mini-fab color="primary">
+      <mat-icon (click)="editAccessory(accessory)">edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn">
+      <mat-icon (click)="deleteAccessory(accessory)">delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

@@ -1,0 +1,22 @@
+.accessory-card {
+  margin: 0 auto;
+  max-width: 400px;
+  margin-bottom: 5px;
+}
+.accessory-actions {
+  text-align: center;
+}
+.accessory-actions button {
+  margin-right: 10px;
+}
+.accessory-header {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.accessory-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
