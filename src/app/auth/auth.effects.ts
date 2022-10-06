@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
 import { catchError, from, map, switchMap, tap } from "rxjs";
 import { AuthActions } from "./action-types";
 

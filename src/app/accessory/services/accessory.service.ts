@@ -1,18 +1,12 @@
 import { Injectable } from "@angular/core";
-import {
-  AngularFirestore,
-  DocumentChangeAction,
-} from "@angular/fire/compat/firestore";
-import { ofType } from "@ngrx/effects";
-import { Store } from "@ngrx/store";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Observable, of } from "rxjs";
-import { first, map, take, takeLast } from "rxjs/operators";
-import { setAccessories } from "../accessory-actions";
+import { map } from "rxjs/operators";
 import { Accessory } from "../models/accesory.model";
 
 @Injectable()
 export class AccessoryService {
-  constructor(private db: AngularFirestore, private store: Store) {}
+  constructor(private db: AngularFirestore) {}
 
   getAccessories(): Observable<Accessory[]> {
     return this.db

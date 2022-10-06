@@ -1,10 +1,9 @@
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
-import { Subscription } from "rxjs";
 import { AppState } from "src/app/reducers";
-import { addIphone, startAddIphone, updateIphone } from "../../iphone.actions";
+import { startAddIphone, updateIphone } from "../../iphone.actions";
 import { Iphone } from "../../models/iphone.model";
 import { IphoneService } from "../../services/iphone.service";
 

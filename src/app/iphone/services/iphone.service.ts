@@ -1,8 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Store } from "@ngrx/store";
 import { from, map, Observable, of } from "rxjs";
-import { setIphones } from "../iphone.actions";
 import { Iphone } from "../models/iphone.model";
 
 @Injectable()
@@ -44,7 +42,7 @@ export class IphoneService {
     );
   }
 
-  deleteIphone(iphone: Iphone) : void  {
+  deleteIphone(iphone: Iphone): void {
     this.db.collection("iphones").doc(iphone.id).delete();
   }
 }

@@ -1,12 +1,10 @@
-import { Component, Inject, OnDestroy, OnInit } from "@angular/core";
+import { Component, Inject, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
-import { Subscription } from "rxjs";
 import { AppState } from "src/app/reducers";
 import { addAccessory, updateAccessory } from "../../accessory-actions";
 import { Accessory } from "../../models/accesory.model";
-import { AccessoryState } from "../../reducers/accessory-reducer";
 import { AccessoryService } from "../../services/accessory.service";
 
 @Component({

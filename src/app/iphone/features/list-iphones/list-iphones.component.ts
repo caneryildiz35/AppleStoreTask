@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
-import { Observable, Subscription } from "rxjs";
+import { Observable } from "rxjs";
 import { DialogConfig } from "src/app/accessory/shared/dialog.config";
 import { EditIphoneDialogComponent } from "../../components/edit-iphone-dialog/edit-iphone-dialog.component";
 import { deleteIphone, getIphones } from "../../iphone.actions";

@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from "@angular/core";
+import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { MatCardModule } from "@angular/material/card";
 import { MatInputModule } from "@angular/material/input";
@@ -15,7 +15,6 @@ import { EffectsModule } from "@ngrx/effects";
 import { accessoryReducer } from "./reducers/accessory-reducer";
 import { AccessoryEffects } from "./accessory.effects";
 import { AccessoryService } from "./services/accessory.service";
-import { AccessoryGuard } from "./accessory.guard";
 
 @NgModule({
   imports: [
@@ -33,6 +32,6 @@ import { AccessoryGuard } from "./accessory.guard";
   ],
   declarations: [ListAccessoriesComponent, EditAccessoryDialogComponent],
   exports: [ListAccessoriesComponent],
-  providers: [AccessoryService, AccessoryGuard],
+  providers: [AccessoryService],
 })
 export class AccessoryModule {}

@@ -26,7 +26,7 @@ export const authReducer = createReducer(
     loginErrorMessage: "",
     isAuthenticated: true,
   })),
-  
+
   on(AuthActions.loginFailed, (state, action) => ({
     ...state,
     loginErrorMessage: action.data,
@@ -36,7 +36,6 @@ export const authReducer = createReducer(
     ...state,
     signupErrorMessage: "",
   })),
-
 
   on(AuthActions.signupFailed, (state, action) => ({
     ...state,

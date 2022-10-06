@@ -14,8 +14,6 @@ import { AccessoryService } from "./services/accessory.service";
 export class AccessoryEffects {
   constructor(
     private actions: Actions,
-    private router: Router,
-    private db: AngularFirestore,
     private accessoryService: AccessoryService,
     private store: Store
   ) {}
@@ -25,9 +23,6 @@ export class AccessoryEffects {
       ofType(AccessoryActions.getAccessories),
       withLatestFrom(this.store.select(getAllAccessories)),
       switchMap(([action, accessories]) => {
-       /* if (accessories.length) {
-                    return of()
-                }*/
         return this.accessoryService
           .getAccessories()
           .pipe(

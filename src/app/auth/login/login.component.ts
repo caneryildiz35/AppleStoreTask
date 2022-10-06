@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { login } from "../auth.actions";
-import { AngularFireAuth } from "@angular/fire/compat/auth";
 import { UserModel } from "../models/user.model";
 import { AppState } from "src/app/reducers";
 
@@ -14,11 +13,7 @@ import { AppState } from "src/app/reducers";
 export class LoginComponent {
   form!: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    public afAuth: AngularFireAuth,
-    public store: Store<AppState>
-  ) {
+  constructor(private fb: FormBuilder, public store: Store<AppState>) {
     this.form = this.fb.group({
       email: ["", [Validators.required]],
       password: ["", [Validators.required]],
@@ -31,8 +26,7 @@ export class LoginComponent {
       ...val,
     };
     console.log(data);
-    
+
     this.store.dispatch(login({ data }));
   }
-
 }

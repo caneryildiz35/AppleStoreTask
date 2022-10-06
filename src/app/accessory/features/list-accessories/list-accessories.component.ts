@@ -1,13 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
-import { Observable, Subscription } from "rxjs";
 import { AppState } from "src/app/reducers";
 import { deleteAccessory, getAccessories } from "../../accessory-actions";
 import { getAllAccessories } from "../../accessory.selectors";
 import { EditAccessoryDialogComponent } from "../../components/edit-accessory-dialog/edit-accessory-dialog.component";
 import { Accessory } from "../../models/accesory.model";
-import { AccessoryState } from "../../reducers/accessory-reducer";
 import { AccessoryService } from "../../services/accessory.service";
 import { DialogConfig } from "../../shared/dialog.config";
 
@@ -20,11 +18,7 @@ import { DialogConfig } from "../../shared/dialog.config";
 export class ListAccessoriesComponent implements OnInit {
   accessories$!: Accessory[];
 
-  constructor(
-    private dialog: MatDialog,
-    private accessoryService: AccessoryService,
-    private store: Store<AppState>
-  ) {}
+  constructor(private dialog: MatDialog, private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(getAccessories());

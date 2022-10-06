@@ -4,10 +4,9 @@ import {
   CanActivate,
   Router,
   RouterStateSnapshot,
-  UrlTree,
 } from "@angular/router";
-import { select, Store } from "@ngrx/store";
-import { Observable, take, tap } from "rxjs";
+import { Store } from "@ngrx/store";
+import { take } from "rxjs";
 import { isAuthenticated } from "./auth.selector";
 
 @Injectable()
