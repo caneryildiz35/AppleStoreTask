@@ -25,7 +25,6 @@ export class IphoneService {
   }
 
   addIphone(iphone: Iphone): Observable<any> {
-    console.log(iphone);
     return from(this.db.collection("iphones").add(iphone));
   }
 

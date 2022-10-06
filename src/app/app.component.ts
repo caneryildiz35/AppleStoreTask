@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
-import { map, Observable, take } from "rxjs";
+import { Observable } from "rxjs";
 import { AuthActions } from "./auth/action-types";
 import { logout } from "./auth/auth.actions";
 import { isAuthenticated } from "./auth/auth.selector";
@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router, private store: Store<AppState>) {}
   ngOnInit(): void {
     this.store.dispatch(AuthActions.autoLogin());
-
     this.isLoggedIn$ = this.store.pipe(select(isAuthenticated));
   }
 

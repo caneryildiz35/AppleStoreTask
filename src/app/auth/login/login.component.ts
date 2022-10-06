@@ -25,7 +25,7 @@ export class LoginComponent {
     let data: UserModel = {
       ...val,
     };
-    console.log(data);
+    
 
     this.store.dispatch(login({ data }));
   }

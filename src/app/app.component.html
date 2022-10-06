@@ -1,46 +1,40 @@
 <mat-sidenav-container fullscreen>
+  <mat-sidenav #start>
+    <mat-nav-list (click)="start.close()">
+      <a mat-list-item routerLink="/list-iphones">
+        <mat-icon>stay_primary_portrait</mat-icon>
+        <span>iPhone</span>
+      </a>
+      <a mat-list-item routerLink="/list-accessories">
+        <mat-icon>widgets</mat-icon>
+        <span>Accessory</span>
+      </a>
+      <a mat-list-item routerLink="/list-offers">
+        <mat-icon> local_offer</mat-icon>
+        <span>Offer</span>
+      </a>
 
-    <mat-sidenav #start>
-        <mat-nav-list (click)="start.close()">
+      <a mat-list-item routerLink="/login " *ngIf="!(isLoggedIn$ | async)">
+        <mat-icon>account_box</mat-icon>
+        <span>Login</span>
+      </a>
+      <a mat-list-item routerLink="/register" *ngIf="!(isLoggedIn$ | async)">
+        <mat-icon>group_add</mat-icon>
+        <span>Register</span>
+      </a>
 
-            <a mat-list-item routerLink="/list-iphones">
-                <mat-icon>stay_primary_portrait</mat-icon>
-                <span>iPhone</span>
-            </a>
-            <a mat-list-item routerLink="/list-accessories">
-                <mat-icon>widgets</mat-icon>
-                <span>Accessory</span>
-            </a>
-            <a mat-list-item routerLink="/list-offers">
-                <mat-icon> local_offer</mat-icon>
-                <span>Offer</span>
-            </a>
+      <a mat-list-item (click)="logout()" *ngIf="isLoggedIn$ | async">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
 
-            <a mat-list-item routerLink="/login " *ngIf="!(isLoggedIn$ | async)">
-                <mat-icon>account_box</mat-icon>
-                <span>Login</span>
-            </a>
-            <a mat-list-item routerLink="/register" *ngIf="!(isLoggedIn$ | async)">
-                <mat-icon>group_add</mat-icon>
-                <span>Register</span>
-            </a>
+  <mat-toolbar color="primary">
+    <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
 
-            <a mat-list-item (click)="logout()" *ngIf="isLoggedIn$ | async">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Logout</span>
-            </a>
-
-        </mat-nav-list>
-
-    </mat-sidenav>
-
-    <mat-toolbar color="primary">
-        <button class="menu-button" mat-icon-button (click)="start.open('mouse')">
-            <mat-icon>menu</mat-icon>
-        </button>
-    </mat-toolbar>
-
-
-    <router-outlet></router-outlet>
-
+  <router-outlet></router-outlet>
 </mat-sidenav-container>

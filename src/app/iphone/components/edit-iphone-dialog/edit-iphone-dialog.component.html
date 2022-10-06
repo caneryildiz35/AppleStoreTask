@@ -1,46 +1,60 @@
-<h2 mat-dialog-title>{{dialogTitle}}</h2>
+<h2 mat-dialog-title>{{ dialogTitle }}</h2>
 <mat-dialog-content>
   <ng-container *ngIf="form">
-    <ng-container [formGroup]="form" style="width:250px ;">
+    <ng-container [formGroup]="form" style="width: 250px">
       <mat-form-field>
-        <input matInput placeholder="Name : " formControlName="name">
+        <input matInput placeholder="Name : " formControlName="name" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="number" placeholder="Price : " formControlName="price">
+        <input
+          matInput
+          type="number"
+          placeholder="Price : "
+          formControlName="price"
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Main Image : " formControlName="mainImage">
+        <input
+          matInput
+          placeholder="Main Image : "
+          formControlName="mainImage"
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Color : " formControlName="color">
+        <input matInput placeholder="Color : " formControlName="color" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Screen Size : " formControlName="screenSize">
+        <input
+          matInput
+          placeholder="Screen Size : "
+          formControlName="screenSize"
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Description : " formControlName="description">
+        <input
+          matInput
+          placeholder="Description : "
+          formControlName="description"
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="SKU : " formControlName="SKU">
+        <input matInput placeholder="SKU : " formControlName="SKU" />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Model : " formControlName="model">
+        <input matInput placeholder="Model : " formControlName="model" />
       </mat-form-field>
- 
-
     </ng-container>
   </ng-container>
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-raised-button (click)="onClose($event)">
-    Close
-  </button>
-  <button mat-raised-button color="primary" [disabled]="!form?.valid" (click)="onSave()">
+  <button mat-raised-button (click)="onClose($event)">Close</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="!form?.valid"
+    (click)="onSave()"
+  >
     Save
   </button>
 </mat-dialog-actions>
-
-
-
-

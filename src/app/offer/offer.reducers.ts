@@ -6,7 +6,7 @@ import { OfferActions } from "./offer-action-types";
 export interface OfferState {
   offers: Offer[]
 }
-
+ 
 const initialOfferState: OfferState = {
   offers: []
 }
