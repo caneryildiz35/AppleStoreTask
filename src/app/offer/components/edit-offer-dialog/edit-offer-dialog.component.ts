@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
 import { Offer } from "../../models/offer.model";
-import { updateOffer } from "../../offer.actions";
+import { updateOffer } from "../../store/offer.actions";
 
 @Component({
   selector: "app-edit-offer-dialog",
@@ -31,11 +31,11 @@ export class EditOfferDialogComponent {
     this.form.patchValue({ ...data.data });
   }
 
-  onClose(value: any) {
+  onClose(value: any): void {
     this.dialogRef.close(value);
   }
 
-  onSave() {
+  onSave(): void {
     let offer: Offer = {
       id: this.offer.id,
       name: this.form.value.name,

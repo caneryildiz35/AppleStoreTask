@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { Accessory } from "./models/accesory.model";
-import { AccessoryState } from "./reducers/accessory-reducer";
+import { Accessory } from "../models/accesory.model";
+import { AccessoryState } from "./accessory-reducer";
+
 
 export const selectAccessoryState =
   createFeatureSelector<AccessoryState>("accessory");

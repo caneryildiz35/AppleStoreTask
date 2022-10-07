@@ -1,14 +1,11 @@
 import { Injectable } from "@angular/core";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Router } from "@angular/router";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { map, of, switchMap, tap, withLatestFrom } from "rxjs";
+import { map, switchMap, tap, withLatestFrom } from "rxjs";
+import { AccessoryService } from "../services/accessory.service";
 import { AccessoryActions } from "./accessory-action-types";
-import { getAccessories, setAccessories } from "./accessory-actions";
 import { getAllAccessories } from "./accessory.selectors";
-import { Accessory } from "./models/accesory.model";
-import { AccessoryService } from "./services/accessory.service";
+
 
 @Injectable()
 export class AccessoryEffects {

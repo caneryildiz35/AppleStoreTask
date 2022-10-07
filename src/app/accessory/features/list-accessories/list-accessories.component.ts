@@ -1,13 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { AppState } from "src/app/reducers";
-import { deleteAccessory, getAccessories } from "../../accessory-actions";
-import { getAllAccessories } from "../../accessory.selectors";
 import { EditAccessoryDialogComponent } from "../../components/edit-accessory-dialog/edit-accessory-dialog.component";
 import { Accessory } from "../../models/accesory.model";
 import { AccessoryService } from "../../services/accessory.service";
 import { DialogConfig } from "../../shared/dialog.config";
+import { deleteAccessory, getAccessories } from "../../store/accessory-actions";
+import { getAllAccessories } from "../../store/accessory.selectors";
 
 @Component({
   selector: "app-list-accessories",
@@ -16,18 +17,16 @@ import { DialogConfig } from "../../shared/dialog.config";
   providers: [AccessoryService],
 })
 export class ListAccessoriesComponent implements OnInit {
-  accessories$!: Accessory[];
+  accessories$!: Observable<Accessory[]>;
 
   constructor(private dialog: MatDialog, private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.store.dispatch(getAccessories());
-    this.store.select(getAllAccessories).subscribe((accessories) => {
-      this.accessories$ = accessories;
-    });
+    this.accessories$ = this.store.select(getAllAccessories);
   }
 
-  addAccessory() {
+  addAccessory(): void {
     const dialogConfig = DialogConfig();
 
     dialogConfig.data = {
@@ -40,11 +39,11 @@ export class ListAccessoriesComponent implements OnInit {
       .subscribe();
   }
 
-  deleteAccessory(accessory: Accessory) {
+  deleteAccessory(accessory: Accessory): void {
     this.store.dispatch(deleteAccessory({ accessory }));
   }
 
-  editAccessory(accessory: Accessory) {
+  editAccessory(accessory: Accessory): void {
     const dialogConfig = DialogConfig();
     dialogConfig.data = {
       dialogTitle: "Edit Accessory",

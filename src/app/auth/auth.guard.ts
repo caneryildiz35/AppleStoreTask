@@ -7,7 +7,7 @@ import {
 } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { take } from "rxjs";
-import { isAuthenticated } from "./auth.selector";
+import { isAuthenticated } from "./store/auth.selector";
 
 @Injectable()
 export class AuthGuard implements CanActivate {

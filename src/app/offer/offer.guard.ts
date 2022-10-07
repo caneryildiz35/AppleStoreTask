@@ -6,9 +6,11 @@ import {
   RouterStateSnapshot,
 } from "@angular/router";
 import { Store } from "@ngrx/store";
-import { getAccessories } from "../accessory/accessory-actions";
-import { getIphones } from "../iphone/iphone.actions";
-import { getOffers } from "./offer.actions";
+import { getAccessories } from "../accessory/store/accessory-actions";
+import { getIphones } from "../iphone/store/iphone.actions";
+import { getOffers } from "./store/offer.actions";
+
+
 
 @Injectable()
 export class OfferGuard implements CanActivate {

@@ -1,12 +1,8 @@
-import { importType } from '@angular/compiler/src/output/output_ast';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListAccessoriesComponent } from './accessory/features/list-accessories/list-accessories.component';
 import { AuthGuard } from './auth/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ListIphonesComponent } from './iphone/features/list-iphones/list-iphones.component';
-import { ListOffersComponent } from './offer/features/list-offers/list-offers.component';
 import { OfferGuard } from './offer/offer.guard';
 
 const routes: Routes = [

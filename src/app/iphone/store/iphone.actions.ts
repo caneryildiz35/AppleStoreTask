@@ -1,5 +1,6 @@
 import { createAction, props } from "@ngrx/store";
-import { Iphone } from "./models/iphone.model";
+import { Iphone } from "../models/iphone.model";
+
 
 export const startAddIphone = createAction(  
     "[List Iphones Page] Start Add Iphone",

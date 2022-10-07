@@ -1,15 +1,14 @@
 import { createReducer, on } from "@ngrx/store";
-import { Offer } from "./models/offer.model";
+import { Offer } from "../models/offer.model";
 import { OfferActions } from "./offer-action-types";
 
-
 export interface OfferState {
-  offers: Offer[]
+  offers: Offer[];
 }
- 
+
 const initialOfferState: OfferState = {
-  offers: []
-}
+  offers: [],
+};
 
 export const offerReducer = createReducer(
   initialOfferState,
@@ -17,27 +16,26 @@ export const offerReducer = createReducer(
   on(OfferActions.addOffer, (state, action) => {
     return {
       ...state,
-      offers: [...state.offers, action.offer]
-    }
+      offers: [...state.offers, action.offer],
+    };
   }),
-  
+
   on(OfferActions.deleteOffer, (state, action) => {
     return {
       ...state,
-      offers: state.offers.filter(offer => offer.id != action.offer.id)
-    }
+      offers: state.offers.filter((offer) => offer.id != action.offer.id),
+    };
   }),
-
 
   on(OfferActions.setOffers, (state, action) => {
     return {
-      offers: action.offers
-    }
+      offers: action.offers,
+    };
   }),
 
   on(OfferActions.getOffers, (state, action) => {
     return {
-      ...state
-    }
+      ...state,
+    };
   })
-)
+);

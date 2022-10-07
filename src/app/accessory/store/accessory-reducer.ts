@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { AccessoryActions } from "../accessory-action-types";
+import { AccessoryActions } from "./accessory-action-types";
 import { Accessory } from "../models/accesory.model";
 
 export interface AccessoryState {

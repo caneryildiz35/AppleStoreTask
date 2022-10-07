@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
-import { startAddIphone, updateIphone } from "../../iphone.actions";
 import { Iphone } from "../../models/iphone.model";
 import { IphoneService } from "../../services/iphone.service";
+import { startAddIphone, updateIphone } from "../../store/iphone.actions";
 
 @Component({
   selector: "app-edit-iphone-dialog",
@@ -57,6 +57,7 @@ export class EditIphoneDialogComponent {
   onAdd(value: any): void {
     this.onClose(value);
   }
+
 
   onSave(): void {
     const formValues = this.form.value;

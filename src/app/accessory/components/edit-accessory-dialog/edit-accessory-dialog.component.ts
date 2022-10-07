@@ -3,9 +3,9 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/reducers";
-import { addAccessory, updateAccessory } from "../../accessory-actions";
 import { Accessory } from "../../models/accesory.model";
 import { AccessoryService } from "../../services/accessory.service";
+import { addAccessory, updateAccessory } from "../../store/accessory-actions";
 
 @Component({
   selector: "app-edit-accessory-dialog",
@@ -42,11 +42,11 @@ export class EditAccessoryDialogComponent implements OnInit {
     }
   }
 
-  onClose(value: any) {
+  onClose(value: any) : void{
     this.dialogRef.close(value);
   }
 
-  onSave() {
+  onSave() : void {
     const formValues = this.form.value;
     let accessory: Accessory = {
       ...formValues,

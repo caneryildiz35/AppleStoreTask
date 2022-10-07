@@ -6,7 +6,7 @@
 </div>
 
 <mat-card
-  *ngFor="let accessory of accessories$"
+  *ngFor="let accessory of accessories$ | async"
   class="accessory-card mat-elevation-z10"
 >
   <mat-card-header class="accessory-card-header">

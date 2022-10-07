@@ -2,9 +2,9 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { select, Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { AuthActions } from "./auth/action-types";
-import { logout } from "./auth/auth.actions";
-import { isAuthenticated } from "./auth/auth.selector";
+import { AuthActions } from "./auth/store/action-types";
+import { logout } from "./auth/store/auth.actions";
+import { isAuthenticated } from "./auth/store/auth.selector";
 import { AppState } from "./reducers";
 
 @Component({

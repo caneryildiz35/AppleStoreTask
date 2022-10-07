@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
-import { Store } from "@ngrx/store";
-import { from, map, Observable, of } from "rxjs";
+import { map, Observable, of } from "rxjs";
 import { Offer } from "../models/offer.model";
 
 @Injectable()

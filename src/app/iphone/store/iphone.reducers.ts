@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
+import { Iphone } from "../models/iphone.model";
 import { IphoneActions } from "./iphone-action-types";
-import { Iphone } from "./models/iphone.model";
+
 
 export interface IphoneState {
   iphones: Iphone[];

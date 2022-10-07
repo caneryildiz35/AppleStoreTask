@@ -1,28 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from "@angular/forms";
+import { FormControl } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { getAllAccessories } from "src/app/accessory/accessory.selectors";
 import { Accessory } from "src/app/accessory/models/accesory.model";
 import { DialogConfig } from "src/app/accessory/shared/dialog.config";
-import { getAllIphones } from "src/app/iphone/iphone.selectors";
+import { getAllAccessories } from "src/app/accessory/store/accessory.selectors";
 import { Iphone } from "src/app/iphone/models/iphone.model";
+import { getAllIphones } from "src/app/iphone/store/iphone.selectors";
 import { EditOfferDialogComponent } from "../../components/edit-offer-dialog/edit-offer-dialog.component";
 import { Offer } from "../../models/offer.model";
-import {
-  addOffer,
-  deleteOffer,
-  getOffers,
-  startAddOffer,
-} from "../../offer.actions";
-import { getAllOffers } from "../../offer.selectors";
 import { OfferService } from "../../services/offer.services";
+import { deleteOffer, startAddOffer } from "../../store/offer.actions";
+import { getAllOffers } from "../../store/offer.selectors";
 
 @Component({
   selector: "app-list-offers",

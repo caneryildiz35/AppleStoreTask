@@ -6,17 +6,15 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
-import { AngularFireModule } from "@angular/fire/compat";
-import { environment } from "src/environments/environment";
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { ListIphonesComponent } from "./features/list-iphones/list-iphones.component";
 import { EditIphoneDialogComponent } from "./components/edit-iphone-dialog/edit-iphone-dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
-import { IphoneEffects } from "./iphone.effects";
-import { iphoneReducer } from "./iphone.reducers";
 import { IphoneService } from "./services/iphone.service";
 import { IphoneRoutingModule } from "./iphone.routing.module";
+import { iphoneReducer } from "./store/iphone.reducers";
+import { IphoneEffects } from "./store/iphone.effects";
 
 @NgModule({
   imports: [

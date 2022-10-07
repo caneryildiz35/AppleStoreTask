@@ -1,6 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { Iphone } from "../models/iphone.model";
 import { IphoneState } from "./iphone.reducers";
-import { Iphone } from "./models/iphone.model";
+
 
 export const selectIphoneState = createFeatureSelector<IphoneState>("iphone");
 
