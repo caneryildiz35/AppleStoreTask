@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialog } from "@angular/material/dialog";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -21,10 +21,7 @@ import { getAllOffers } from "../../store/offer.selectors";
   providers: [OfferService],
 })
 export class ListOffersComponent implements OnInit {
-  iphoneFormController = new FormControl();
-  accessoryFormController = new FormControl();
-  nameFormController = new FormControl();
-
+  form!:FormGroup;
   totalPrice: number = 0;
 
   accessories$!: Observable<Accessory[]>;
@@ -33,7 +30,14 @@ export class ListOffersComponent implements OnInit {
   productNames: string[] = [];
   displayedColumns: string[] = ["name", "price", "products", "actions"];
 
-  constructor(private store: Store, private dialog: MatDialog) {}
+  constructor(private store: Store, private dialog: MatDialog , private fb:FormBuilder) {
+    const formControls = {
+      iphone: new FormControl([]),
+      accessory: new FormControl([]),
+      name: "",
+    };
+    this.form = this.fb.group(formControls);
+  }
 
   ngOnInit(): void {
     this.offers$ = this.store.select(getAllOffers);
@@ -57,12 +61,15 @@ export class ListOffersComponent implements OnInit {
       .subscribe();
   }
 
-  selectionChanged(): void {
+  selectionChanged(e:any): void {
+    console.log(e);
+    
     this.productNames = [];
     this.totalPrice = 0;
-    let accessories: Accessory[] = this.accessoryFormController.value;
-    let iphones: Iphone[] = this.iphoneFormController.value;
+    let accessories: Accessory[] = this.form.get('accessory')?.value;
+    let iphones: Iphone[] = this.form.get('iphone')?.value;
 
+    
     if (accessories)
       accessories.forEach((element) => {
         this.totalPrice += element.price;
@@ -77,7 +84,7 @@ export class ListOffersComponent implements OnInit {
   }
 
   addOffer(): void {
-    let offerName = this.nameFormController.value;
+    let offerName = this.form.get('name')?.value;
 
     let offer: Offer = {
       name: offerName,
@@ -87,9 +94,7 @@ export class ListOffersComponent implements OnInit {
 
     this.store.dispatch(startAddOffer({ offer }));
 
-    this.accessoryFormController.reset();
-    this.iphoneFormController.reset();
-    this.nameFormController.reset();
+    this.form.reset();
     this.totalPrice = 0;
     this.productNames = [];
   }

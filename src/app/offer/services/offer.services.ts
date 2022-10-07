@@ -41,7 +41,7 @@ export class OfferService {
     );
   }
 
-  deleteOffer(offer: Offer) {
+  deleteOffer(offer: Offer) : void {
     this.db.collection("offers").doc(offer.id).delete();
   }
 }

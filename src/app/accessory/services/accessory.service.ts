@@ -46,7 +46,7 @@ export class AccessoryService {
     );
   }
 
-  deleteAccessory(accesory: Accessory) {
+  deleteAccessory(accesory: Accessory) : void {
     this.db.collection("accessories").doc(accesory.id).delete();
   }
 }
